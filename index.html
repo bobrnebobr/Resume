@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Михаил Бобров | Python Developer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:#f5f6fa;
+color:#333;
+}
+
+.container{
+max-width:1100px;
+margin:40px auto;
+background:white;
+display:flex;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+}
+
+.sidebar{
+width:320px;
+background:linear-gradient(160deg,#3f5f8a,#2c4a70);
+color:white;
+padding:35px;
+}
+
+.avatar{
+width:160px;
+height:160px;
+border-radius:50%;
+border:6px solid white;
+margin:20px auto;
+display:block;
+object-fit:cover;
+}
+
+.name{
+text-align:center;
+font-size:24px;
+font-weight:600;
+}
+
+.sidebar h3{
+margin-top:35px;
+margin-bottom:10px;
+font-weight:600;
+border-bottom:1px solid rgba(255,255,255,0.3);
+padding-bottom:5px;
+}
+
+.sidebar p{
+margin:6px 0;
+font-size:14px;
+}
+
+.skill{
+margin:8px 0;
+}
+
+.bar{
+height:6px;
+background:rgba(255,255,255,0.3);
+border-radius:10px;
+margin-top:4px;
+}
+
+.bar span{
+display:block;
+height:100%;
+background:white;
+border-radius:10px;
+}
+
+.main{
+flex:1;
+padding:45px;
+}
+
+.main h2{
+color:#3f5f8a;
+margin-bottom:10px;
+border-bottom:2px solid #eee;
+padding-bottom:6px;
+}
+
+.section{
+margin-bottom:30px;
+}
+
+.job{
+margin-bottom:18px;
+}
+
+.company{
+color:#3f5f8a;
+font-weight:600;
+}
+
+.tag{
+display:inline-block;
+background:#eef2f7;
+padding:6px 10px;
+border-radius:6px;
+font-size:13px;
+margin:4px;
+}
+
+ul{
+margin-left:18px;
+}
+
+footer{
+text-align:center;
+padding:20px;
+color:#888;
+font-size:14px;
+}
+
+@media(max-width:900px){
+
+.container{
+flex-direction:column;
+}
+
+.sidebar{
+width:100%;
+text-align:center;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="sidebar">
+
+<div class="name">Михаил Бобров</div>
+
+<img src="photo.jpg" class="avatar">
+
+<h3>Контакты</h3>
+
+<p>📧 mishabobrov291@gmail.com</p>
+<p>📞 +7 953 045 6709</p>
+<p>📍 Санкт-Петербург</p>
+
+<h3>Навыки</h3>
+
+<div class="skill">Python<div class="bar"><span style="width:60%"></span></div></div>
+<div class="skill">FastAPI<div class="bar"><span style="width:50%"></span></div></div>
+<div class="skill">Kubernetes<div class="bar"><span style="width:40%"></span></div></div>
+<div class="skill">Docker<div class="bar"><span style="width:60%"></span></div></div>
+<div class="skill">Microservices<div class="bar"><span style="width:40%"></span></div></div>
+<div class="skill">Machine Learning<div class="bar"><span style="width:40%"></span></div></div>
+
+<h3>Языки</h3>
+
+<p>🇷🇺 Russian — C2</p>
+<p>🇬🇧 English — B2</p>
+
+<h3>Хобби</h3>
+
+<p>🏐 Волейбол</p>
+<p>🎵 Музыка</p>
+
+</div>
+
+
+<div class="main">
+
+<div class="section">
+<h2>Профиль</h2>
+<p>
+19-летний Python-разработчик из Санкт-Петербурга.
+Интересуюсь backend-разработкой, микросервисной архитектурой, ML и MLOps.
+</p>
+</div>
+
+<div class="section">
+<h2>Образование</h2>
+
+<div class="job">
+<b>Инженерия ИИ — 2 курс</b><br>
+<span class="company">Университет ИТМО</span>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Опыт работы</h2>
+
+<div class="job">
+<b>Инженер</b><br>
+<span class="company">СФТИ НИЯУ МИФИ — Снежинск</span>
+<p>
+Разработка системы обнаружения дефектов при печати металлом.
+</p>
+</div>
+
+<div class="job">
+<b>Лаборант</b><br>
+<span class="company">ИТМО — Санкт-Петербург</span>
+<p>
+Работа с Kubernetes, настройка кластера, Helm charts,
+микросервисы на FastAPI и Apache Airflow.
+</p>
+</div>
+
+<div class="job">
+<b>Инженер-программист</b><br>
+<span class="company">Главархив Москвы</span>
+<p>
+Удаленная работа. Разработка OCR для распознавания текстов XIX века.
+</p>
+</div>
+
+</div>
+
+<div class="section">
+<h2>Технологии</h2>
+
+<span class="tag">Python</span>
+<span class="tag">FastAPI</span>
+<span class="tag">Docker</span>
+<span class="tag">Kubernetes</span>
+<span class="tag">REST API</span>
+<span class="tag">Microservices</span>
+<span class="tag">Machine Learning</span>
+
+</div>
+
+<div class="section">
+<h2>Достижения</h2>
+
+<ul>
+<li>Призёр хакатона ЛЦТ от мэрии Москвы</li>
+<li>Несколько раз призёр хакатонов «Цифровой прорыв»</li>
+<li>Разработка Backend-решений и MLOps-пайплайнов</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+<footer>
+© 2026 Михаил Бобров
+</footer>
+
+</body>
+</html>
