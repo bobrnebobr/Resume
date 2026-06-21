@@ -1,271 +1,534 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Резюме Михаила Боброва — ML / MLOps Engineer">
+  <title>Михаил Бобров — ML / MLOps Engineer</title>
 
-<title>Михаил Бобров | Python Developer</title>
+  <style>
+    :root {
+      --ink: #182230;
+      --muted: #5f6c7b;
+      --accent: #225f67;
+      --accent-dark: #17464c;
+      --accent-soft: #eaf3f2;
+      --line: #dce5e5;
+      --paper: #ffffff;
+      --canvas: #edf1f1;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-<style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+    body {
+      background: var(--canvas);
+      color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
 
-body{
-font-family:'Inter',sans-serif;
-background:#f5f6fa;
-color:#333;
-}
+    a {
+      color: inherit;
+      text-decoration-color: rgba(255, 255, 255, 0.55);
+      text-underline-offset: 3px;
+    }
 
-.container{
-max-width:1100px;
-margin:40px auto;
-background:white;
-display:flex;
-border-radius:12px;
-overflow:hidden;
-box-shadow:0 10px 25px rgba(0,0,0,0.1);
-}
+    a:hover {
+      text-decoration-color: currentColor;
+    }
 
-.sidebar{
-width:320px;
-background:linear-gradient(160deg,#3f5f8a,#2c4a70);
-color:white;
-padding:35px;
-}
+    .resume {
+      width: min(1080px, calc(100% - 32px));
+      margin: 32px auto;
+      overflow: hidden;
+      background: var(--paper);
+      border-radius: 16px;
+      box-shadow: 0 18px 55px rgba(24, 34, 48, 0.12);
+    }
 
-.avatar{
-width:160px;
-height:160px;
-border-radius:50%;
-border:6px solid white;
-margin:20px auto;
-display:block;
-object-fit:cover;
-}
+    .hero {
+      display: grid;
+      grid-template-columns: 148px minmax(0, 1fr);
+      gap: 28px;
+      align-items: center;
+      padding: 40px 48px;
+      color: #fff;
+      background:
+        radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.12), transparent 30%),
+        linear-gradient(135deg, var(--accent-dark), var(--accent));
+    }
 
-.name{
-text-align:center;
-font-size:24px;
-font-weight:600;
-}
+    .avatar {
+      width: 136px;
+      height: 136px;
+      display: block;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.88);
+      border-radius: 50%;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
 
-.sidebar h3{
-margin-top:35px;
-margin-bottom:10px;
-font-weight:600;
-border-bottom:1px solid rgba(255,255,255,0.3);
-padding-bottom:5px;
-}
+    h1 {
+      font-size: clamp(32px, 5vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+    }
 
-.sidebar p{
-margin:6px 0;
-font-size:14px;
-}
+    .role {
+      margin-top: 7px;
+      color: #d8eeee;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
 
-.skill{
-margin:8px 0;
-}
+    .contacts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 18px;
+      margin-top: 20px;
+      color: #f2fbfb;
+      font-size: 14px;
+    }
 
-.bar{
-height:6px;
-background:rgba(255,255,255,0.3);
-border-radius:10px;
-margin-top:4px;
-}
+    .contacts span,
+    .contacts a {
+      white-space: nowrap;
+    }
 
-.bar span{
-display:block;
-height:100%;
-background:white;
-border-radius:10px;
-}
+    .content {
+      padding: 38px 48px 46px;
+    }
 
-.main{
-flex:1;
-padding:45px;
-}
+    .summary {
+      max-width: 900px;
+      font-size: 16px;
+      line-height: 1.65;
+    }
 
-.main h2{
-color:#3f5f8a;
-margin-bottom:10px;
-border-bottom:2px solid #eee;
-padding-bottom:6px;
-}
+    .section {
+      margin-top: 34px;
+    }
 
-.section{
-margin-bottom:30px;
-}
+    .section-title {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 19px;
+      color: var(--accent-dark);
+      font-size: 19px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
 
-.job{
-margin-bottom:18px;
-}
+    .section-title::after {
+      height: 1px;
+      flex: 1;
+      content: "";
+      background: var(--line);
+    }
 
-.company{
-color:#3f5f8a;
-font-weight:600;
-}
+    .entry {
+      position: relative;
+      padding-left: 21px;
+      border-left: 2px solid var(--line);
+    }
 
-.tag{
-display:inline-block;
-background:#eef2f7;
-padding:6px 10px;
-border-radius:6px;
-font-size:13px;
-margin:4px;
-}
+    .entry + .entry {
+      margin-top: 27px;
+    }
 
-ul{
-margin-left:18px;
-}
+    .entry::before {
+      position: absolute;
+      top: 7px;
+      left: -6px;
+      width: 10px;
+      height: 10px;
+      content: "";
+      background: var(--accent);
+      border: 2px solid #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 0 1px var(--accent);
+    }
 
-footer{
-text-align:center;
-padding:20px;
-color:#888;
-font-size:14px;
-}
+    .entry-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px 24px;
+      align-items: baseline;
+    }
 
-@media(max-width:900px){
+    .entry h3 {
+      font-size: 18px;
+      line-height: 1.3;
+    }
 
-.container{
-flex-direction:column;
-}
+    .place {
+      margin-top: 2px;
+      color: var(--accent);
+      font-weight: 650;
+    }
 
-.sidebar{
-width:100%;
-text-align:center;
-}
+    .date {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 600;
+      white-space: nowrap;
+    }
 
-}
+    .context {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
-</style>
+    ul {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+
+    li {
+      padding-left: 3px;
+    }
+
+    li + li {
+      margin-top: 6px;
+    }
+
+    li::marker {
+      color: var(--accent);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      padding: 16px 18px;
+      background: #f7f9f9;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+    }
+
+    .skill-group h3 {
+      margin-bottom: 7px;
+      color: var(--accent-dark);
+      font-size: 14px;
+    }
+
+    .skill-group p {
+      color: #344250;
+      font-size: 14px;
+    }
+
+    .education {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 8px 24px;
+    }
+
+    .education h3 {
+      font-size: 17px;
+    }
+
+    .education p {
+      margin-top: 5px;
+      color: var(--muted);
+    }
+
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1.45fr 0.55fr;
+      gap: 36px;
+    }
+
+    .compact-list {
+      margin-top: 0;
+    }
+
+    .languages p + p {
+      margin-top: 5px;
+    }
+
+    .print-button {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      padding: 11px 16px;
+      color: #fff;
+      cursor: pointer;
+      background: var(--accent-dark);
+      border: 0;
+      border-radius: 999px;
+      box-shadow: 0 8px 22px rgba(23, 70, 76, 0.25);
+      font: inherit;
+      font-size: 13px;
+      font-weight: 650;
+    }
+
+    @media (max-width: 720px) {
+      .resume {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .hero {
+        grid-template-columns: 94px minmax(0, 1fr);
+        gap: 18px;
+        padding: 28px 22px;
+      }
+
+      .avatar {
+        width: 90px;
+        height: 90px;
+      }
+
+      .content {
+        padding: 30px 22px 40px;
+      }
+
+      .contacts {
+        gap: 6px 13px;
+      }
+
+      .entry-head,
+      .education,
+      .bottom-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .date {
+        grid-row: 1;
+      }
+
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .print-button {
+        display: none;
+      }
+    }
+
+    @media print {
+      @page {
+        size: A4;
+        margin: 11mm;
+      }
+
+      body {
+        background: #fff;
+        font-size: 10.2pt;
+        line-height: 1.42;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      .resume {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      .hero {
+        padding: 8mm 10mm;
+      }
+
+      .content {
+        padding: 7mm 10mm 8mm;
+      }
+
+      .section {
+        margin-top: 6mm;
+      }
+
+      .section-title {
+        margin-bottom: 3mm;
+      }
+
+      .entry,
+      .skill-group,
+      .education {
+        break-inside: avoid;
+      }
+
+      .entry + .entry {
+        margin-top: 4.5mm;
+      }
+
+      .print-button {
+        display: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <article class="resume">
+    <header class="hero">
+      <img class="avatar" src="photo.jpg" alt="Михаил Бобров">
+      <div>
+        <h1>Михаил Бобров</h1>
+        <p class="role">ML / MLOps Engineer</p>
+        <div class="contacts" aria-label="Контакты">
+          <span>Санкт-Петербург</span>
+          <a href="mailto:mishabobrov291@gmail.com">mishabobrov291@gmail.com</a>
+          <a href="https://t.me/bobrnebobr">Telegram</a>
+          <a href="https://github.com/bobrnebobr">GitHub</a>
+        </div>
+      </div>
+    </header>
 
-<div class="container">
+    <main class="content">
+      <section aria-labelledby="profile-title">
+        <h2 class="section-title" id="profile-title">Профиль</h2>
+        <p class="summary">
+          ML/MLOps-инженер с опытом в классическом машинном обучении и фокусом на инфраструктуру
+          и эксплуатационный контур AI-систем.
+          Разворачиваю сервисы в Kubernetes, автоматизирую сборку и доставку Docker-образов,
+          проектирую API и асинхронные пайплайны обработки данных. Работал с computer vision,
+          OCR и LLM/VLM-компонентами — от подготовки данных и обучения моделей до интеграции
+          в прикладные системы заказчиков. Знаком с практиками MLSecOps.
+        </p>
+      </section>
 
-<div class="sidebar">
+      <section class="section" aria-labelledby="experience-title">
+        <h2 class="section-title" id="experience-title">Опыт</h2>
 
-<div class="name">Михаил Бобров</div>
+        <article class="entry">
+          <div class="entry-head">
+            <div>
+              <h3>Лаборант · DevOps и backend-функции</h3>
+              <p class="place">IDM Lab, Университет ИТМО</p>
+            </div>
+            <p class="date">по настоящее время</p>
+          </div>
+          <p class="context">Разработка и внедрение прикладных продуктов для внутренних и внешних заказчиков.</p>
+          <ul>
+            <li>Отвечаю за DevOps-составляющую проектов лаборатории: развернул Kubernetes-кластер с нуля, создаю Helm-чарты для прикладных сервисов и интегрирую готовые чарты Airflow, PostgreSQL и MinIO.</li>
+            <li>Спроектировал GitLab CI-пайплайн для сборки Docker-образов и публикации в Container Registry заказчика; согласовал схему интеграции с его DevOps-инженером.</li>
+            <li>Для системы автоматического нормоконтроля настроил обработку PDF через Apache Airflow, KEDA-автомасштабирование и FastAPI-интерфейс для запуска задач, отслеживания статусов и получения результатов. Система интегрирована в ИСУ ИТМО.</li>
+            <li>Разработал пакет <b>makemd</b>: преобразование PDF в типизированное внутреннее представление с извлечением текста, таблиц, изображений и графики; сериализация в Markdown/XML для LLM-пайплайнов, CLI, тесты и интеграция YOLO/VLM-компонентов.</li>
+            <li>Поддерживаю доступ к LLM через LiteLLM и участвую в эксплуатации сервисов лаборатории.</li>
+          </ul>
+        </article>
 
-<img src="photo.jpg" class="avatar">
+        <article class="entry">
+          <div class="entry-head">
+            <div>
+              <h3>Инженер-программист · Data Engineering</h3>
+              <p class="place">Главархив Москвы</p>
+            </div>
+            <p class="date">февраль 2026 — настоящее время</p>
+          </div>
+          <ul>
+            <li>Участвую в разработке OCR-системы для печатных и рукописных архивных документов XIX века.</li>
+            <li>Отвечаю за подготовку данных и инженерный контур экспериментов с Kraken и надстройками над TrOCR.</li>
+            <li>Собираю данные для обучения и тестирования из открытых источников.</li>
+          </ul>
+        </article>
 
-<h3>Контакты</h3>
+        <article class="entry">
+          <div class="entry-head">
+            <div>
+              <h3>Инженер-программист</h3>
+              <p class="place">СФТИ НИЯУ МИФИ · проектная работа</p>
+            </div>
+          </div>
+          <ul>
+            <li>Разрабатывал систему контроля процесса металлической 3D-печати в реальном времени: CNN-классификатор состояния печати и YOLO-сегментацию дефектных областей.</li>
+            <li>Компенсировал дефицит и низкое разнообразие примеров дефектов генерацией синтетических данных с помощью NumPy и GAN.</li>
+            <li>Развернул inference-контур на NVIDIA Jetson с подключением к камере принтера.</li>
+            <li>Участвовал в подготовке и презентации решения; программно-аппаратный комплекс продан дочерней компании Росатома.</li>
+          </ul>
+        </article>
+      </section>
 
-<p>📧 mishabobrov291@gmail.com</p>
-<p>📞 +7 953 045 6709</p>
-<p>📍 Санкт-Петербург</p>
+      <section class="section" aria-labelledby="projects-title">
+        <h2 class="section-title" id="projects-title">Проект</h2>
 
-<h3>Навыки</h3>
+        <article class="entry">
+          <div class="entry-head">
+            <div>
+              <h3>KUDO · оптимизация производственного плана</h3>
+              <p class="place">Ведущий разработчик сервисной части</p>
+            </div>
+            <p class="date">около 6 месяцев</p>
+          </div>
+          <p class="context">Заказной проект для химического производства · команда из 3 человек.</p>
+          <ul>
+            <li>Отвечал за архитектуру и реализацию всего контура вне математического модуля оптимизации: backend, асинхронное выполнение задач, хранение результатов и развертывание.</li>
+            <li>Реализовал API на FastAPI и фоновую обработку через Celery/Redis; входные данные и результаты сохраняются в MinIO, клиент получает статус и выгружает итоговый производственный план по идентификатору задачи.</li>
+            <li>Контейнеризировал сервисы через Docker Compose, добавил healthcheck и мониторинг Celery-задач через Flower, настроил автоматический деплой основной ветки на сервер посредством GitLab CI.</li>
+            <li>Первый этап системы передан заказчику.</li>
+          </ul>
+        </article>
+      </section>
 
-<div class="skill">Python<div class="bar"><span style="width:60%"></span></div></div>
-<div class="skill">FastAPI<div class="bar"><span style="width:50%"></span></div></div>
-<div class="skill">Kubernetes<div class="bar"><span style="width:40%"></span></div></div>
-<div class="skill">Docker<div class="bar"><span style="width:60%"></span></div></div>
-<div class="skill">Microservices<div class="bar"><span style="width:40%"></span></div></div>
-<div class="skill">Machine Learning<div class="bar"><span style="width:40%"></span></div></div>
+      <section class="section" aria-labelledby="skills-title">
+        <h2 class="section-title" id="skills-title">Технологии</h2>
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Infrastructure &amp; CI/CD</h3>
+            <p>Linux, Docker, Docker Compose, Kubernetes, Helm, KEDA, GitLab CI/CD, Container Registry</p>
+          </div>
+          <div class="skill-group">
+            <h3>Backend &amp; Data</h3>
+            <p>Python, FastAPI, Celery, Redis, Apache Airflow, PostgreSQL, MinIO, REST API</p>
+          </div>
+          <div class="skill-group">
+            <h3>ML &amp; AI</h3>
+            <p>Классическое ML, Computer Vision, OCR, CNN, GAN, YOLO, LLM/VLM-интеграции, синтетические данные</p>
+          </div>
+          <div class="skill-group">
+            <h3>MLOps &amp; Engineering</h3>
+            <p>MLOps, основы MLSecOps, Git, pytest, проектирование API, микросервисная архитектура, асинхронные пайплайны</p>
+          </div>
+        </div>
+      </section>
 
-<h3>Языки</h3>
+      <section class="section" aria-labelledby="education-title">
+        <h2 class="section-title" id="education-title">Образование</h2>
+        <div class="education">
+          <div>
+            <h3>Университет ИТМО · бакалавриат «Инженерия искусственного интеллекта»</h3>
+            <p>Очная форма. Среди изученных дисциплин: функциональный анализ, дифференциальные уравнения и прикладная статистика для машинного обучения.</p>
+          </div>
+          <p class="date">2024–2028</p>
+        </div>
+      </section>
 
-<p>🇷🇺 Russian — C2</p>
-<p>🇬🇧 English — C1</p>
+      <div class="bottom-grid">
+        <section class="section" aria-labelledby="achievements-title">
+          <h2 class="section-title" id="achievements-title">Достижения</h2>
+          <ul class="compact-list">
+            <li>Призёр хакатона «Лидеры цифровой трансформации».</li>
+            <li>Дважды победитель и дважды призёр хакатонов «Цифровой прорыв».</li>
+          </ul>
+        </section>
 
-<h3>Хобби</h3>
+        <section class="section languages" aria-labelledby="languages-title">
+          <h2 class="section-title" id="languages-title">Языки</h2>
+          <p>Русский — родной</p>
+          <p>Английский — C1</p>
+        </section>
+      </div>
+    </main>
+  </article>
 
-<p>🏐 Волейбол</p>
-<p>🎵 Музыка</p>
-
-</div>
-
-
-<div class="main">
-
-<div class="section">
-<h2>Профиль</h2>
-<p>
-19-летний Python-разработчик из Санкт-Петербурга.
-Интересуюсь backend-разработкой, микросервисной архитектурой, ML и MLOps.
-</p>
-</div>
-
-<div class="section">
-<h2>Образование</h2>
-
-<div class="job">
-<b>Инженерия ИИ — 2 курс</b><br>
-<span class="company">Университет ИТМО</span>
-</div>
-
-</div>
-
-<div class="section">
-<h2>Опыт работы</h2>
-
-<div class="job">
-<b>Инженер</b><br>
-<span class="company">СФТИ НИЯУ МИФИ — Снежинск</span>
-<p>
-Разработка системы обнаружения дефектов при печати металлом.
-</p>
-</div>
-
-<div class="job">
-<b>Лаборант</b><br>
-<span class="company">ИТМО — Санкт-Петербург</span>
-<p>
-Работа с Kubernetes, настройка кластера, Helm charts,
-микросервисы на FastAPI и Apache Airflow.
-</p>
-</div>
-
-<div class="job">
-<b>Инженер-программист</b><br>
-<span class="company">Главархив Москвы</span>
-<p>
-Удаленная работа. Разработка OCR для распознавания текстов XIX века.
-</p>
-</div>
-
-</div>
-
-<div class="section">
-<h2>Технологии</h2>
-
-<span class="tag">Python</span>
-<span class="tag">FastAPI</span>
-<span class="tag">Docker</span>
-<span class="tag">Kubernetes</span>
-<span class="tag">REST API</span>
-<span class="tag">Microservices</span>
-<span class="tag">Machine Learning</span>
-
-</div>
-
-<div class="section">
-<h2>Достижения</h2>
-
-<ul>
-<li>Призёр хакатона ЛЦТ от мэрии Москвы</li>
-<li>Несколько раз призёр хакатонов «Цифровой прорыв»</li>
-<li>Стартап-разработка системы для отслеживания дефектов во время печати металлом</li>
-</ul>
-
-</div>
-
-</div>
-
-</div>
-
-<footer>
-© 2026 Михаил Бобров
-</footer>
-
+  <button class="print-button" type="button" onclick="window.print()">Сохранить в PDF</button>
 </body>
 </html>
